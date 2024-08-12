@@ -7,24 +7,14 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+# How to start the project
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Run `npm ci` (or ` pnpm install --frozen-lockfile`) to install the necessary dependencies
+2. After that, run `npm run dev` to run the application
+3. Go to http://localhost:5173 and you should be able to view the application
 
-- Configure the top-level `parserOptions` property like this:
+## Additional
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. You can also run the storybook to check the stories created for components, for that run: `npm run storybook`
+   and go to the http://localhost:6006
+2. You can also view the storybook interaction tests created for each component, under the tab: "Interaction"
