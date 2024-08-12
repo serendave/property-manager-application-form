@@ -2,6 +2,7 @@ import { useNavigate } from '@tanstack/react-router';
 import { Button, Form } from '../components';
 import SummarySection from '../components/forms/SummarySection/SummarySection';
 import { useMultistepFormState } from '../providers';
+import { useMemo } from 'react';
 
 const SummaryStep = () => {
   const { formData } = useMultistepFormState();
@@ -10,6 +11,14 @@ const SummaryStep = () => {
   const submitHandler = () => {
     alert(JSON.stringify(formData, null, 2));
   };
+
+  const formattedGender = useMemo(() => {
+    if (formData.personal?.gender) {
+      return formData.personal?.gender[0].toUpperCase() + formData.personal.gender.slice(1);
+    }
+
+    return 'N/A';
+  }, [formData.personal]);
 
   return (
     <Form
@@ -30,7 +39,7 @@ const SummaryStep = () => {
         title='Personal Information'
         onEditClick={() => navigate({ to: '/personal' })}
         items={[
-          { label: 'Gender', value: formData.personal?.gender },
+          { label: 'Gender', value: formattedGender },
           { label: 'Address', value: formData.personal?.address },
           { label: 'Date of Birth', value: formData.personal?.dateOfBirth },
         ]}
@@ -41,7 +50,10 @@ const SummaryStep = () => {
         items={[
           { label: 'Residence', value: formData.legal?.residence },
           { label: 'City', value: formData.legal?.city },
-          { label: 'Income', value: formData.legal?.income?.toString() + '€' },
+          {
+            label: 'Income',
+            value: formData.legal ? formData.legal?.income?.toString() + '€' : 'N/A',
+          },
         ]}
       />
     </Form>

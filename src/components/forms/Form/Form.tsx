@@ -21,7 +21,7 @@ function Form<TFieldValues extends FieldValues = FieldValues>({
   return (
     <FormProvider {...methods}>
       <form
-        className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 min-w-[700px]'
+        className='bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 md:min-w-[700px] min-w-full'
         onSubmit={methods.handleSubmit(onSubmit as SubmitHandler<FieldValues>)}
         noValidate
       >

@@ -33,7 +33,7 @@ const RadioGroup = ({ items, value, name, direction = 'row', onChange }: RadioGr
               onChange={onChange}
               value={item.value}
             />
-            <div className='w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:border-white peer-checked:bg-[#fae66e] transition duration-150 ease-in-out'></div>
+            <div className='w-5 h-5 border-2 border-gray-300 rounded-full peer-checked:bg-[#fae66e] transition duration-150 ease-in-out'></div>
             <span className='ml-2 text-gray-700'>{item.label}</span>
           </label>
         );
